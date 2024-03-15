@@ -1,12 +1,13 @@
 import"./Navbar.css";
 import 'bootstrap/dist/css/bootstrap.min.css';
-import {FaBars,FaShoppingCart ,FaCaretUp ,FaTimes} from "react-icons/fa"
+import {FaBars,FaShoppingCart ,FaCaretUp ,FaSearch,FaTimes} from "react-icons/fa"
 import { useSelector } from "react-redux";
 import { NavLink ,useNavigate } from "react-router-dom";
 import AuthInfo from "./Context/Authuser";
 import { useContext, useState  ,useEffect ,useRef} from "react";
 import {db,auth} from "../Firebase"
 import {collection,query,where,onSnapshot } from "firebase/firestore";
+import Search from "./Search";
 
 function Navbar()
 {
@@ -29,6 +30,7 @@ function Navbar()
   const allcart =useSelector(state=>state.nameCart)
   const tCart=allcart.reduce((s,x)=>s+x.count,0)
   const [curr,setCurr]=useState("");
+  const [openSearch,setOpensearch]=useState(false)
 
   const naviUl=useNavigate()
   const ulRef=useRef()
@@ -80,11 +82,16 @@ function Navbar()
     </div>
   </ul>
     <div className="d-flex">
+
+      <button className="search"  
+      onClick={()=>setOpensearch(true)}><FaSearch size="1.3em"/></button>
+      {openSearch && <Search openSearch={openSearch} setOpensearch={setOpensearch}></Search>}
       <div className="cart-div"><NavLink to="/cart">
         <button className="cart-sign mx-2 p-0" ><FaShoppingCart/></button>
         {totCart >0 && <div className="cart-count">{totCart}</div>}
         </NavLink>
       </div>
+      
        
        {!userid ?<div className="d-flex align-items-center">
         <NavLink to="/login"><button className="out-login">Login</button></NavLink>

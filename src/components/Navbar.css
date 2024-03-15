@@ -107,6 +107,13 @@
     border: none;
     text-transform: capitalize;
 }
+.search
+{
+    background-color: transparent;
+    margin: 0 3px;
+    color: var(--orange);
+    border: none;
+}
 .mobile-menu
 {
     display: none;

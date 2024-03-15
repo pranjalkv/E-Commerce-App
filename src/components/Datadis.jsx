@@ -1,4 +1,3 @@
-
 import "./Datadis.css"
 import 'bootstrap/dist/css/bootstrap.min.css';
 import {FaStar ,FaStarHalfAlt,FaRegStar} from "react-icons/fa";
@@ -26,7 +25,6 @@ function Datadis({propApi})
     useEffect(()=>{
         const fetchData=()=>
         {
-         
            try
             {
                setOpenSpin(true)

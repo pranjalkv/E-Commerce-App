@@ -56,10 +56,15 @@ Data form fakestoreApi called using Asyncthunk redux toolkit ,Sort items accordi
 <!-- Getting Started -->
 ## Getting Started
 git clone 
+
 npm install
+
 npm install react-icons --save
+
 npm install firebase
+
 npm install @reduxjs/toolkit
+
 npm install react-redux
 
 
